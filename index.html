@@ -6,40 +6,11 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
 <body ng-controller="ChezController as chezmoi">
-<ul class ="list-group">
-<li class="list-group-item" ng-repeat="place in chezmoi.places">
-	<h3>{{place.name}}
-	<em class="pull-right">{{place.description}}</em>
-	<img ng-src="{{place.images[0].full}}">
-	</h3>
-	<section  ng-controller="PanelController as panel">
-		<ul class="nav nav-pills">
-			<li ng-class="{active:panel.isSelected(1)}"> 
-				<a href ng-click="panel.selectTab(1)"> Description </a>
-			</li>
-			<li ng-class="{active:panel.isSelected(2)}"> 
-				<a href ng-click="panel.selectTab(2)"> Type </a>
-			</li>
-			<li ng-class="{active:panel.isSelected(3)}"> 
-				<a href ng-click="panel.selectTab(3)"> Reviews </a> 
-			</li>
-		</ul>
-		
-		<div class="panel" ng-show="panel.isSelected(1)">
-			<h4>Description</h4>
-			<p>{{place.description}}</p>
-		</div>
-		<div class="panel" ng-show="panel.isSelected(2)">
-			<h4>Type</h4>
-			<p>{{place.type}}</p>
-		</div>
-		<div class="panel" ng-show="panel.isSelected(3)">
-			<h4>Reviews</h4>
-			<blockquote>None yet</blockquote>
-		</div>
-	</section>
-</li>
-</ul>
+<div ng-include="'partials/header.html'"></div>
+
+<div class="container">
+	<div ng-include="'partials/restaurants.html'"></div>
+</div>
 
 
 
